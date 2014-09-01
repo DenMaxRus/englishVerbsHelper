@@ -1,9 +1,13 @@
 package com.englishverbshelper;
 
 public class Verb {
-	int id;
+	private int id;
 	Word[] forms;
 	String[] translations;
+	
+	public int getId() {
+		return id;
+	}
 	
 	public Verb(Word[] forms, String[] translations) {
 		this.forms = forms;

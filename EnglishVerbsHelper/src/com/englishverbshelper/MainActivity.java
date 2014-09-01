@@ -167,11 +167,21 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 		 * Returns a new instance of this fragment for the given section number.
 		 */
 		public static PlaceholderFragment newInstance(int sectionNumber) {
-
 			PlaceholderFragment fragment = new PlaceholderFragment();
 			Bundle args = new Bundle();
 			args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-			args.putInt(ARG_SECTION_LAYOUT, R.layout.fragment_main);
+			switch (sectionNumber) {
+			/*case 1:
+				break;
+			case 2:
+				break;*/
+			case 3:
+				args.putInt(ARG_SECTION_LAYOUT, R.layout.fragment_irregular_verbs);
+				break;
+			default:
+				args.putInt(ARG_SECTION_LAYOUT, R.layout.fragment_main);
+				break;
+			}
 			fragment.setArguments(args);
 			return fragment;
 		}
@@ -188,7 +198,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 			else if(getArguments() != null)
 				bundle = getArguments();
 			Log.v("MY_LOG", bundle.toString());
-			View rootView = inflater.inflate(R.layout.fragment_main, container,
+			View rootView = inflater.inflate(bundle.getInt(ARG_SECTION_LAYOUT), container,
 					false);
 			return rootView;
 		}
