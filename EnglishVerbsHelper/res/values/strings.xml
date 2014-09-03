@@ -2,9 +2,9 @@
 <resources>
 
 	<string name="app_name">English Verbs Helper</string>
-	<string name="title_section1">Section 1</string>
-	<string name="title_section2">Section 2</string>
-	<string name="title_section3">Section 3</string>
+	<string name="adjectives_with_prep">Adjectives with prepositions</string>
+	<string name="phrasal_verbs">Phrasal verbs</string>
+	<string name="irregular_verbs">Irregular verbs</string>
 	<string name="hello_world">Hello world!</string>
 	<string name="action_settings">Settings</string>
 

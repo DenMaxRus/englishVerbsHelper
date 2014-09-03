@@ -18,6 +18,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView.FindListener;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends Activity implements ActionBar.TabListener {
@@ -142,11 +144,11 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 			Locale l = Locale.getDefault();
 			switch (position) {
 			case 0:
-				return getString(R.string.title_section1).toUpperCase(l);
+				return getString(R.string.adjectives_with_prep).toUpperCase(l);
 			case 1:
-				return getString(R.string.title_section2).toUpperCase(l);
+				return getString(R.string.phrasal_verbs).toUpperCase(l);
 			case 2:
-				return getString(R.string.title_section3).toUpperCase(l);
+				return getString(R.string.irregular_verbs).toUpperCase(l);
 			}
 			return null;
 		}
@@ -171,10 +173,12 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 			Bundle args = new Bundle();
 			args.putInt(ARG_SECTION_NUMBER, sectionNumber);
 			switch (sectionNumber) {
-			/*case 1:
+			case 1:
+			 	args.putInt(ARG_SECTION_LAYOUT, R.layout.fragment_adjectives_with_prepositions);
 				break;
 			case 2:
-				break;*/
+				args.putInt(ARG_SECTION_LAYOUT, R.layout.fragment_phrasal_verbs);
+				break;
 			case 3:
 				args.putInt(ARG_SECTION_LAYOUT, R.layout.fragment_irregular_verbs);
 				break;
@@ -190,16 +194,13 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 		}
 
 		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
+		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 			Bundle bundle = null;
 			if(savedInstanceState != null)
 				bundle = savedInstanceState;
 			else if(getArguments() != null)
 				bundle = getArguments();
-			Log.v("MY_LOG", bundle.toString());
-			View rootView = inflater.inflate(bundle.getInt(ARG_SECTION_LAYOUT), container,
-					false);
+			View rootView = inflater.inflate(bundle.getInt(ARG_SECTION_LAYOUT), container, false);
 			return rootView;
 		}
 	}
